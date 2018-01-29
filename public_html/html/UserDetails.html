@@ -1,0 +1,116 @@
+﻿<body ng-app="app" ng-controller="loginctrl">
+     <div class="pull-right">
+            <input id="btnLogOut" type="submit" class="btn btn-primary pull-right" value="LogOut" ng-click="LogOut()">
+     </div>
+    <div class="container">
+        <div><strong>Welcome {{user}}</strong></div>       
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div><b>Height</b></div>
+                        <div ng-repeat="hgt in heightarray">
+                            <div><input type="checkbox" ng-model="hgt.on"/> {{hgt.height}}</div>
+                        </div>
+                        <div><b>Age</b></div>
+                        <div ng-repeat="age in agearray">
+                            <div><input type="checkbox" ng-model="age.on"/> {{age.age}}</div>
+                        </div>
+                        <div><b>Country</b></div>
+                        <div ng-repeat="cntry in countryarray">
+                            <div><input type="checkbox" ng-model="cntry.on"/> {{cntry.country}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form ng-show="loggedinuser=='admin'" class="form-group">
+                            <table class="table table-bordered">Add New User
+                                <tr>
+                                    <td><label>Name</label><input type="text" class="form-control" ng-model="addname"/></td>                                   
+                                </tr>
+                                <tr>
+                                    <td><label>Age</label><input type="number" class="form-control" ng-model="addage" /></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Gender</label><input type="text" class="form-control" ng-model="addgender" /></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Height</label><input type="text" class="form-control" ng-model="addheight" /></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Country</label><input type="text" class="form-control" ng-model="addcountry" /></td>
+                                </tr> 
+                                <tr>
+                                    <td><input type="submit" class="btn btn-primary addnew pull-right" value="Add New" ng-click="addNew()"></td>
+                                </tr>                                
+                            </table>
+                        </form>
+                        <form> <!--ng-submit="addNew()"-->
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                        <th>Height</th>
+                                        <th>Country</th>
+                                        <th ng-show="loggedinuser=='admin'" colspan="2"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="user in users|customHeight:(heightarray|filter:{on:true})|customAge:(agearray|filter:{on:true})|customCountry:(countryarray|filter:{on:true})|orderBy:sortColumn">
+                                        <td>
+                                            <input ng-show="loggedinuser=='admin'" type="checkbox" ng-model="user.selected"/>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" ng-disabled="!enabledEdit[{{$index}}]" ng-model="user.name" required />
+                                         </td>
+                                        <td>
+                                            <input type="number" class="form-control" ng-disabled="!enabledEdit[{{$index}}]" ng-model="user.age" required />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" ng-disabled="!enabledEdit[{{$index}}]" ng-model="user.gender" required />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" ng-disabled="!enabledEdit[{{$index}}]" ng-model="user.height" required />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" ng-disabled="!enabledEdit[{{$index}}]" ng-model="user.country" required />
+                                        </td>
+                                         <td ng-show="loggedinuser=='admin'">
+                                            <input type="button" class="btn btn-primary addnew pull-right" value="Edit"  ng-click="edit($index)">
+                                        </td>
+                                        <td ng-show="loggedinuser=='admin'">
+                                            <input type="button" class="btn btn-danger addnew pull-right" ng-click="remove($index)" value="Remove"> 
+                                        </td>                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!--<input ng-show="loggedinuser=='admin'" type="submit" class="btn btn-primary addnew pull-right" value="Submit" ng-click="Submit()">-->
+                        </form>
+                    </div>
+                </div>
+            </div>           
+            <div class="col-md-2">
+                    <div class="panel panel-default">
+                    <div class="panel-body">                        
+                        <div class="pull-right">                           
+                            <select ng-model="sortColumn">
+                                <option value="" selected disabled>Sort By</option>
+                                <option value="name">Name</option>
+                                <option value="+age">Age Asc</option>
+                                <option value="-age">Age Desc</option>
+                                <option value="+height">Height Asc</option>
+                                <option value="-height">Height Desc</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>         
+    </div>
+</body>

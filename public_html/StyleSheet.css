@@ -1,0 +1,44 @@
+
+.sort{
+    position:absolute;
+    top:70px;
+    right:300px;
+}
+body {
+    font-family: Arial;
+}
+
+table {
+    border-collapse: collapse;
+    width:100%
+}
+
+td {
+    border: 1px solid black;
+    padding: 5px;
+    height:70px
+}
+
+th {
+   border: 1px solid black;
+    padding: 5px;
+    text-align: left;    
+}
+
+﻿#sidenav {
+    height: 113%;
+    width: 200px;
+    position: absolute;
+    z-index: 1;
+    top: 63px;
+    left: 0;
+    background-color:Highlight;
+    overflow-x: hidden;
+    padding-top: 20px;
+    
+}
+
+#btnLogOut{
+    top:0px;
+    right:0px;
+}

@@ -1,0 +1,24 @@
+<head>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<form name="myForm">
+<div class="panel-body" ng-app="app" ng-controller="loginctrl">    
+    <p>
+        <label>Username</label>
+        <span></span><input type="text" name="username" ng-model="username" required/>
+        <span ng-show="myForm.username.$touched && myForm.username.$invalid"></span>
+    </p>
+    <p>
+        <label>Password</label>
+        <span id="spanPassword"></span><input type="password" name="password" ng-model="password" required/>
+        <span ng-show="myForm.username.$touched && myForm.username.$invalid"></span>
+    </p>
+    <p>
+        <span></span><span></span>
+        <button class=".btn-default" id="Submit" ng-click="onSubmit(username,password)">Submit</button>
+    </p>
+    <div  ng-hide="status" class="alert alert-warning"><label><strong>Login Unsuccessfull!</strong></label>
+    </div>
+    </div>
+</form>
+

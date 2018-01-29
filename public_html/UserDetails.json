@@ -1,0 +1,56 @@
+[{
+    "name": "Sara",
+    "age":18,
+    "gender":"Female",
+    "country":"India",
+    "height":"150cms",
+    "password":"1"
+},
+{
+    "name": "Rocky",
+    "age":20,
+    "gender":"Male",
+    "country":"Canada",
+    "height":"155cms",
+    "password":"3"
+},
+{
+    "name": "Ciya",
+    "age":22,
+    "gender":"Female",
+    "country":"India",
+    "height":"160cms",
+    "password":"1"
+},
+{
+    "name": "Ram",
+    "age":26,
+    "gender":"Male",
+    "country":"Srilanka",
+    "height":"165cms",
+    "password":"1"
+},
+{
+    "name": "Lucky",
+    "age":60,
+    "gender":"Male",
+    "country":"India",
+    "height":"170cms",
+    "password":"1"
+},
+{
+    "name": "Reena",
+    "age":32,
+    "gender":"Female",
+    "country":"China",
+    "height":"168cms",
+    "password":"1"
+},
+{
+    "name": "Ram",
+    "age":58,
+    "gender":"Male",
+    "country":"Canada",
+    "height":"155cms",
+    "password":"3"
+}]
